@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 
 const MarkerPopup = (props) => {
   const { name } = props.data;
-  console.log(props);
+  console.log(props); 
   return (
     <Popup>
       <div className="poup-text">{name}</div>

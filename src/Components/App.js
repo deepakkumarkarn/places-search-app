@@ -1,8 +1,8 @@
 import React from "react";
-import "./App.css";
-import MapView from "./Components/Map/MapView";
-import PlacesInput from './Components/PlacesSearch/PlacesInput';
+import "../index.css";
 
+import MapView from "./MapView";
+import PlacesInput from "./PlacesInput";
 
 const App = () => {
   return (
@@ -13,7 +13,8 @@ const App = () => {
       <div className="search-box">
         <PlacesInput />
       </div>
-    </div>)
+    </div>
+  );
 };
 
 export default App;
