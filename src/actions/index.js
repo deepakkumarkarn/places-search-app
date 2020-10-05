@@ -8,6 +8,9 @@ export const MAP_CLEAR = "MAP_CLEAR";
 export const LOCATION_VENUES_UPDATE = "LOCATION_VENUES_UPDATE";
 export const LOCATION_VENUES_CLEAR = "LOCATION_VENUES_CLEAR";
 
+
+export const LATLNG_VENUES_UPDATE = "LATLNG_VENUES_UPDATE";
+
 export function removeLocation() {
   return {type: LOCATION_REMOVE};
 }
@@ -21,7 +24,7 @@ export function updateMap(latlng) {
 }
 
 export function clearMap() {
-  return {type: LOCATION_UPDATE};
+  return {type: MAP_CLEAR};
 }
 
 export function updateVenue(venueDetails){
@@ -30,4 +33,8 @@ export function updateVenue(venueDetails){
 
 export function clearVenue(){
   return { type: LOCATION_VENUES_CLEAR};
+}
+
+export function updateVenuesForLocationDetails(locationDetails) {
+  return {type: LATLNG_VENUES_UPDATE, locationDetails};
 }

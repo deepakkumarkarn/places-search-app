@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import AlgoliaPlaces from "algolia-places-react";
+import { bindActionCreators } from "redux";
 
-import { updateLocation, updateMap, updateVenue } from "./../actions";
+import * as Actions from "./../actions";
 
 class PlacesInput extends Component {
   render() {
@@ -25,12 +26,13 @@ class PlacesInput extends Component {
             this.props.updateMap(suggestion.latlng);
             this.props.updateVenue(suggestion);
           }}
-
-          onClear={() => console.log("Clear")}
-
+          onClear={() => {
+            this.props.clearMap();
+          }}
           onError={({ message }) =>
             console.log(
-              "Algolia Places servers reaching your rate limit."
+              "Algolia Places servers reaching your rate limit.",
+              message
             )
           }
         />
@@ -45,6 +47,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = { updateLocation, updateMap, updateVenue };
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(Actions, dispatch);
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlacesInput);

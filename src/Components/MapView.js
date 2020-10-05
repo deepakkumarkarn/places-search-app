@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Map, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import Markers from "./VenueMarkers";
-import { connect } from "react-redux"; 
+import VenueMarkers from "./VenueMarkers";
+import { connect } from "react-redux";
 
 class MapView extends Component {
-  render() {    
+  render() {
     const { currentLocation, zoom } = this.props;
 
     return (
@@ -15,7 +15,7 @@ class MapView extends Component {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
 
-        <Markers />
+        <VenueMarkers venues={this.props.venues} />
       </Map>
     );
   }
@@ -25,6 +25,7 @@ const mapStateToProps = (state) => {
   return {
     currentLocation: state.location.currentLocation,
     zoom: state.location.zoom,
+    venues: state.venue.venueDetail,
   };
 };
 
