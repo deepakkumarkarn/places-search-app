@@ -6,6 +6,7 @@ import {
 
 const INITIAL_STATE = {
   venueDetail: [
+    // As per mock API example
     {
       type: "Feature",
       id: "tppoints.1",

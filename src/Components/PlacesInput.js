@@ -23,11 +23,10 @@ class PlacesInput extends Component {
             // console.log("Suggestion:", suggestion);
             // console.log("Index", suggestionIndex);
             this.props.updateLocation(suggestion);
-            this.props.updateMap(suggestion.latlng);
             this.props.updateVenue(suggestion);
           }}
           onClear={() => {
-            this.props.clearMap();
+            this.props.removeLocation();
           }}
           onError={({ message }) =>
             console.log(
