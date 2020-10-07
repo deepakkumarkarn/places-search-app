@@ -6,20 +6,34 @@ import "../index.css";
 import MapView from "./MapView";
 import PlacesInput from "./PlacesInput";
 import LocationInfo from "./VenueInfo";
+import LocationChart from './LocationChart';
 
 const App = (props) => {
   //Todo: Add the graph Feature
-  
+
   const { locationDetail } = props;
 
   const showLocationInfo = () => {
-    //Todo: Make it work like toggle button for sidenav    
+    //Todo: Make it work like toggle button for sidenav
     const sideBar = (
-        <Fragment>
-        <div className={"d-flex h-100 venueContainer"}>
+      <Fragment>
+        <div className={"d-flex venueContainer"}>
           <LocationInfo />
-        </div></Fragment>
-      );
+        </div>
+      </Fragment>
+    );
+    return sideBar;
+  };
+
+  const showGraphicCategorization = () => {
+    //Todo: Make it work like toggle button for sidenav
+    const sideBar = (
+      <Fragment>
+        <div className={"d-flex h-100 venueContainer"}>
+          <LocationChart />
+        </div>
+      </Fragment>
+    );
     return sideBar;
   };
 
@@ -27,7 +41,7 @@ const App = (props) => {
     <div className="App w-100 d-flex flex-row">
       <div
         className={
-          "d-flex h-100 flex-column " +
+          "d-flex h-100 flex-column p-2 " +
           (Object.keys(locationDetail).length === 0 ? "w-100" : "mainConatiner")
         }
       >
@@ -38,7 +52,7 @@ const App = (props) => {
           <PlacesInput />
         </div>
       </div>
-      {showLocationInfo()}
+      {showGraphicCategorization()}
     </div>
   );
 };

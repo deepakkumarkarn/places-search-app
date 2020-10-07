@@ -4,12 +4,12 @@ import { VenueLocationIcon } from "./VenueLocationIcon";
 
 import { connect } from "react-redux";
 
-const MarkerPopup = (props) => {
-  const venuedetail = props.venueDetail;
+export const MarkerPopup = (props) => {
+  const data = props.data;
   return (
     <Popup>
       <div className="poup-text">
-        {venuedetail || "Unknown"}
+        {data || "-"}
       </div>
     </Popup>
   );
@@ -25,7 +25,7 @@ const VenueMarkers = (props) => {
           icon={VenueLocationIcon}
         >
           <MarkerPopup
-            venueDetail={
+            data={
               venue.properties.sitename   
             }
           />
