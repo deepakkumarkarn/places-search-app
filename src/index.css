@@ -1,11 +1,5 @@
-  .App {
-    height: 100vh;
-  }
-
-
-.leaflet-container {
-  width: 100vw;
-  height: 75vh;
+.App {
+  height: 100vh;
 }
 
 .mainConatiner {
