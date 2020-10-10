@@ -12,7 +12,7 @@ const INITIAL_STATE = {
     tags: ["country/in", "city", "place/city", "source/geonames"],
     population: 2405700,
   },
-  currentLocation: { lat: 21.1498, lng: 79.082 },
+  center: [79.082, 21.1498], //[lng, lat]
   zoom: 12,
 };
 
@@ -35,7 +35,7 @@ function updateLocation(state, locationDetail) {
   };
   state.locationDetail = clone(detail);
 
-  state.currentLocation = detail.latlng;
+  state.center = [detail.latlng.lng, detail.latlng.lat];
   state.zoom = 15;
 
   return state;
@@ -53,10 +53,8 @@ function removeLocation(state) {
     tags: ["country/in", "city", "place/city", "source/geonames"],
     population: 2405700,
   };
-
   state.locationDetail = clone(defaultdetails);
-
-  state.currentLocation = { lat: 21.1498, lng: 79.082 };
+  state.center = [79.082, 21.1498];
   state.zoom = 12;
   return state;
 }

@@ -20,6 +20,7 @@ const INITIAL_STATE = {
       },
     },
   ],
+  geoObject: []
 };
 
 function updateVenue(state, venueDetails = []) {
@@ -36,14 +37,12 @@ function clearVenue(state) {
   return state;
 }
 
-function getVenuesForLocationetails(state, locationetails) {
-  console.log(locationetails);
-
+function getVenuesForLocationetails(state) {
   fetch("https://5f7a1072e402340016f93709.mockapi.io/6simplex/poi")
     .then((res) => res.json())
     .then(
       (result) => {
-        state.venueDetail = result;
+        state.geoObject = result;
       },
       (error) => {
         console.log(error);
@@ -54,6 +53,7 @@ function getVenuesForLocationetails(state, locationetails) {
 }
 
 export default function venueReducer(state = INITIAL_STATE, action) {
+  getVenuesForLocationetails(state, {});
   switch (action.type) {
     case LOCATION_VENUES_UPDATE:
       const { venueDetails } = action.venueDetails;
@@ -61,8 +61,8 @@ export default function venueReducer(state = INITIAL_STATE, action) {
     case LOCATION_VENUES_CLEAR:
       return clearVenue(state);
     case LATLNG_VENUES_UPDATE:
-      const { locationetails } = action.locationetails;
-      return getVenuesForLocationetails(state, locationetails);
+      // const { locationetails } = action.locationetails;
+      return getVenuesForLocationetails(state);
     default:
       return state;
   }

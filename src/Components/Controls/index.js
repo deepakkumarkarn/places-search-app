@@ -1,7 +1,8 @@
 import Controls from "./Controls";
-import FullScreenControl from "./FullScreenControl";
+import { FullScreenControl, ZoomControl } from "./FullScreenControl";
 
 export {
 	Controls,
-	FullScreenControl
+	FullScreenControl,
+	ZoomControl
 }
