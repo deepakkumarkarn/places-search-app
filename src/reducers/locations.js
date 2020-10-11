@@ -36,7 +36,7 @@ function updateLocation(state, locationDetail) {
   state.locationDetail = clone(detail);
 
   state.center = [detail.latlng.lng, detail.latlng.lat];
-  state.zoom = 15;
+  state.zoom = 18;
 
   return state;
 }

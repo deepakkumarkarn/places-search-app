@@ -80,15 +80,16 @@ drawBtn.onclick = () => {
 };
 
 const MapComp = (props) => {
-  const { center } = props;
+  const { center, zoom } = props;
   var size = map.getSize();
 
   view.fit(fromLonLat(center), {
     padding: [170, 50, 30, 150],
-    minResolution: 15,
+    minResolution: 10,
   });
 
-  view.centerOn(fromLonLat(center), size, [450, 200]);
+  view.centerOn(fromLonLat(center), size, [430, 200]);
+  view.setZoom(zoom);
 
   return <React.Fragment></React.Fragment>;
 };
