@@ -4,6 +4,7 @@ import AlgoliaPlaces from "algolia-places-react";
 import { bindActionCreators } from "redux";
 
 import * as Actions from "./../actions";
+import MapComp from "./Map";
 
 class PlacesInput extends Component {
   render() {
@@ -18,10 +19,6 @@ class PlacesInput extends Component {
             // Other options from https://community.algolia.com/places/documentation.html#options
           }}
           onChange={({ query, rawAnswer, suggestion, suggestionIndex }) => {
-            // console.log("Query", query);
-            // console.log("Raw", rawAnswer);
-            // console.log("Suggestion:", suggestion);
-            // console.log("Index", suggestionIndex);
             this.props.updateLocation(suggestion);
             this.props.updateVenue(suggestion);
           }}
@@ -35,6 +32,7 @@ class PlacesInput extends Component {
             )
           }
         />
+        <MapComp />
       </div>
     );
   }

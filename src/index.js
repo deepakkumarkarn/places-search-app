@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import "./index.css";
 import App from './Components/App';
+import "./Components/Map";
 
 import configureStore from './store/configureStore'
 
